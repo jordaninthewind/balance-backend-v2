@@ -3,6 +3,7 @@ require 'pry'
 class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
+		@user.total_time = 0
 
 		if @user.save
 			render json: @user
