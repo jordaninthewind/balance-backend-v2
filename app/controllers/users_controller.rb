@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		@user.total_time = 0
 		@user.total_time.to_i
+		@user.profile_url = "https://i0.wp.com/dailycupofyoga.com/wp-content/uploads/2011/11/tumblr_luo25sxgzi1qdyb9oo1_4002.png"
 
 		if @user.save
 			render json: @user
