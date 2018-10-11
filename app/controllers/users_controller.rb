@@ -42,10 +42,15 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def update
+		binding.pry
+		@user = User.find_by(:email => user_params.email)
+	end
+
 	private
 
 	def user_params
-		params.require(:new_user).permit(:name, :last_name, :location, :password, :email)
+		params.require(:new_user).permit(:name, :last_name, :location, :password, :email, :profile_url)
 	end
 
 	def login_params
