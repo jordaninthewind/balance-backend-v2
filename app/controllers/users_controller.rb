@@ -43,11 +43,17 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		binding.pry
-		@user = User.find_by(:email => user_params.email)
+		@user = User.find(params[:id])
+		@user.update(update_user_params)
+
+		render json: @user
 	end
 
 	private
+
+	def update_user_params
+		params.require(:user).permit(:id, :total_time, :name, :password, :last_name, :location, :email, :profile_url)
+	end
 
 	def user_params
 		params.require(:new_user).permit(:name, :last_name, :location, :password, :email, :profile_url)

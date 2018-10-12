@@ -10,3 +10,234 @@ Migrating to AddProfileLinkToUsers (20181007002558)
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5995223251244452575)[0m
   [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/login" for 127.0.0.1 at 2018-10-11 14:47:14 -0700
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as JSON
+  Parameters: {"login_user"=>{"email"=>"jordan.kline@gmail.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jordan.kline@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.49ms)
+Completed 200 OK in 125ms (Views: 24.2ms | ActiveRecord: 20.6ms)
+
+
+Started POST "/users/1" for 127.0.0.1 at 2018-10-11 14:48:01 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/users/1"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/users/1" for 127.0.0.1 at 2018-10-11 14:48:10 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/users/1"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 14:49:34 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>nil, "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>nil}, "id"=>"1"}
+Completed 404 Not Found in 370919ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 15:50:00 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>nil, "email"=>"jordan.kline@Qgmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>"asdf", "lastName"=>"dsf"}, "id"=>"1"}
+Completed 404 Not Found in 11812ms (ActiveRecord: 11.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 15:50:18 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>nil, "email"=>"jordan.kline@Qgmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>"asdf", "lastName"=>"dsf"}, "id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 4286714ms (ActiveRecord: 22.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:09:55 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>nil, "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" ", "lastName"=>"Kline"}, "id"=>"1"}
+Completed 404 Not Found in 47970ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:10:52 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>nil, "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" ", "lastName"=>"Kline"}, "id"=>"1"}
+Completed 404 Not Found in 29361ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:11:30 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" "}, "id"=>"1"}
+Completed 404 Not Found in 73803ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:13:02 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" "}, "id"=>"1"}
+Unpermitted parameters: :id, :total_time
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :id, :total_time
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jordan.kline@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+Unpermitted parameters: :id, :total_time
+Completed 404 Not Found in 104565ms (ActiveRecord: 17.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:14:54 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" "}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jordan.kline@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:19:22 -0700
+Completed 404 Not Found in 272970ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" ", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jordan.kline@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (10.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "last_name" = $2, "password_digest" = $3, "profile_url" = $4 WHERE "users"."id" = $5[0m  [["updated_at", "2018-10-12 00:21:09.654386"], ["last_name", "Kline"], ["password_digest", "$2a$10$59EZvg.8e6NNPq6qnt7rbe3mRHASQPx6Evmg1vl.1IFVQvzpmOpVO"], ["profile_url", " "], ["id", 1]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 404 Not Found in 145452ms (ActiveRecord: 19.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Started POST "/login" for 127.0.0.1 at 2018-10-11 17:22:01 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"login_user"=>{"email"=>"jordan.kline@gmail.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jordan.kline@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.88ms)
+Completed 200 OK in 111ms (Views: 23.7ms | ActiveRecord: 2.5ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:29:21 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>"https://i0.wp.com/dailycupofyoga.com/wp-content/uploads/2011/11/tumblr_luo25sxgzi1qdyb9oo1_4002.png", "password"=>"[FILTERED]"}, "id"=>"1"}
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:30:08 -0700
+Completed 404 Not Found in 75025ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:47:in `update'
+Processing by UsersController#update as JSON
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:30:36 -0700
+Started POST "/login" for 127.0.0.1 at 2018-10-11 17:30:36 -0700
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" https://i0.wp.com/dailycupofyoga.com/wp-content/uploads/2011/11/tumblr_luo25sxgzi1qdyb9oo1_4002.png", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jordan.kline@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.4ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "profile_url" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_digest", "$2a$10$iahk2twIaPMrhiNGqxIEWOS4fcD48RZL/XawJbp4F00IF2Prpv0/y"], ["profile_url", " https://i0.wp.com/dailycupofyoga.com/wp-content/uploads/2011/11/tumblr_luo25sxgzi1qdyb9oo1_4002.png"], ["updated_at", "2018-10-12 00:30:36.497110"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.81ms)
+Completed 200 OK in 124ms (Views: 4.8ms | ActiveRecord: 17.6ms)
+
+
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"SF, CA", "total_time"=>nil, "profile_url"=>" https://i0.wp.com/dailycupofyoga.com/wp-content/uploads/2011/11/tumblr_luo25sxgzi1qdyb9oo1_4002.png", "password"=>"[FILTERED]"}, "id"=>"1"}
+Processing by UsersController#login as JSON
+  Parameters: {"login_user"=>{"email"=>"jordan.kline@gmail.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jordan.kline@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (91.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+Completed 200 OK in 106ms (Views: 4.9ms | ActiveRecord: 11.7ms)
+
+
+  [1m[36mUser Exists (9.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jordan.kline@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (20.8ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["password_digest", "$2a$10$8CYqu8UYw8IAyv7IPZPe3.AaHRlxF9kwNNER.TIbw3/cdmWHoM/Sq"], ["updated_at", "2018-10-12 00:30:36.770902"], ["id", 1]]
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 259ms (Views: 0.9ms | ActiveRecord: 166.8ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-10-11 17:37:28 -0700
+Processing by UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>1, "name"=>"Jordan", "last_name"=>"Kline", "email"=>"jordan.kline@gmail.com", "location"=>"San Francisco, CA", "total_time"=>nil, "profile_url"=>" https://i0.wp.com/dailycupofyoga.com/wp-content/uploads/2011/11/tumblr_luo25sxgzi1qdyb9oo1_4002.png", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jordan.kline@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "location" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_digest", "$2a$10$eARHg6VhG2gTUyIxwugCFesLrvmAD2tDsPT2XgfkJ/cqUFbD6OHYa"], ["location", "San Francisco, CA"], ["updated_at", "2018-10-12 00:37:28.933284"], ["id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.29ms)
+Completed 200 OK in 102ms (Views: 4.7ms | ActiveRecord: 4.5ms)
+
+
